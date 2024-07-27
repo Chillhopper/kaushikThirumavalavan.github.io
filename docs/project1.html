@@ -137,9 +137,15 @@
             margin: 0;
             border-radius: 8px;
             box-shadow: none;
+            padding: 20px; /* Adding padding for space around the contents */
+        }
+        .timeline-item:nth-child(odd) .card {
             background-color: #333; /* Dark mode background */
             color: #fff; /* Dark mode text */
-            padding: 20px; /* Adding padding for space around the contents */
+        }
+        .timeline-item:nth-child(even) .card {
+            background-color: #1e3a5f; /* Dark blue background */
+            color: #fff; /* Dark mode text */
         }
         .card-section {
             margin-bottom: 20px;
