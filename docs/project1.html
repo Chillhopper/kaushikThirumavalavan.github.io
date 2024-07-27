@@ -49,12 +49,15 @@
             margin-bottom: 20px;
         }
         .timeline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             position: relative;
             max-width: 800px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        .timeline::after {
+        .timeline::before {
             content: '';
             position: absolute;
             width: 6px;
@@ -62,82 +65,51 @@
             top: 0;
             bottom: 0;
             left: 50%;
-            margin-left: -3px;
+            transform: translateX(-50%);
         }
         .timeline-item {
-            padding: 20px 40px;
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             background-color: inherit;
-            width: 50%;
             border-radius: 8px;
-            margin-bottom: 20px; /* Spacing between items */
+            padding: 20px;
+            margin: 10px 0;
+            width: 100%;
+            position: relative;
         }
         .timeline-item::after {
             content: ' ';
             position: absolute;
             width: 25px;
             height: 25px;
-            right: -17px;
             background-color: #121212;
-            border: 4px solid #e67e22; /* Highlight color for better visibility */
+            border: 4px solid #e67e22;
             top: 15px;
             border-radius: 50%;
             z-index: 1;
         }
-        .left {
-            left: 0;
-        }
-        .right {
+        .timeline-item:nth-child(odd)::after {
             left: 50%;
+            transform: translateX(-50%);
         }
-        .right::before {
-            left: -16px;
-        }
-        .left::before {
-            right: -16px;
-        }
-        .left::after {
-            left: -13px;
-        }
-        .right::after {
-            left: -13px;
+        .timeline-item:nth-child(even)::after {
+            left: 50%;
+            transform: translateX(-50%);
         }
         .timeline-item img {
             width: 100px; /* Smaller size for process images */
             height: auto;
             margin-top: 10px;
             border-radius: 8px;
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .timeline-item img + img {
-            margin-left: 10px;
-        }
-        .timeline-item .large-img {
-            width: 200px; /* Larger size for the final step GIF */
-            height: auto;
-        }
-        .timeline-item .content-wrapper {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .timeline-item .content-wrapper img {
-            margin-right: 10px;
-        }
-        .timeline-item.right .content-wrapper {
-            flex-direction: row-reverse;
-        }
-        .timeline-item.right .content-wrapper img {
-            margin-right: 0;
-            margin-left: 10px;
         }
         .timeline-item .card {
             width: 100%;
             margin: 0;
             border-radius: 8px;
             box-shadow: none;
-            padding: 20px; /* Adding padding for space around the contents */
+            padding: 20px;
+            text-align: center;
         }
         .timeline-item:nth-child(odd) .card {
             background-color: #333; /* Dark mode background */
@@ -217,25 +189,38 @@
             background-color: #d35400;
         }
 
+        /* Stakeholder and Validation Line */
+        .line-wrapper {
+            position: relative;
+            margin-top: 40px;
+            padding: 20px;
+            border: 2px solid #e67e22;
+            border-radius: 8px;
+        }
+        .line-wrapper::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #e67e22;
+            top: -40px;
+            bottom: auto;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
         /* Mobile responsiveness */
         @media screen and (max-width: 767px) {
-            .timeline::after {
-                left: 90%;
-            }
             .timeline-item {
                 width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
+                padding: 20px;
             }
-            .timeline-item.left, .timeline-item.right {
-                left: 0;
+            .timeline-item::after {
+                top: 25px;
+                left: 50%;
+                transform: translateX(-50%);
             }
-            .timeline-item.right::before, .timeline-item.left::before {
-                left: -16px;
-            }
-            .timeline-item.right::after, .timeline-item.left::after {
-                left: 75%;
-                right: auto;
+            .line-wrapper {
+                padding: 10px;
             }
         }
     </style>
@@ -307,43 +292,43 @@
                         <h3>Process</h3>
                         <p>This timeline outlines the key steps in the system's fabrication process. Due to the <span class="highlight-orange">volatile nature of the project</span> and the need to adapt to <span class="highlight-orange">new problems and challenges</span>, the development involved multiple <span class="highlight-orange">iterations</span>, with steps being revisited and refined several times, rather than being followed in a strictly linear sequence.</p>
                         <div class="timeline">
-                            <div class="timeline-item left">
+                            <div class="timeline-item">
                                 <div class="card">
                                     <h4>Getting parts</h4>
                                     <div class="content-wrapper">
                                         <p>Utilizing the <span class="highlight-orange">Make Buy Reuse principle</span> to manage costs effectively. Ensured all necessary parts were bought, reused or made to <span class="highlight-orange">fit budget constraints</span>.</p>
-                                        <div class="d-flex">
+                                        <div class="d-flex justify-content-center">
                                             <img src="assets/img/step1img1.jpg" alt="Step 1: Procurement">
                                             <img src="assets/img/step1img2.jpg" alt="Step 1: Procurement" class="ms-2">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="timeline-item right">
+                            <div class="timeline-item">
                                 <div class="card">
                                     <h4>Making Components</h4>
                                     <div class="content-wrapper">
                                         <p>Work was divided efficiently among team members to <span class="highlight-orange">implement</span> components concurrently under a tight <span class="highlight-orange">2-week schedule</span>.</p>
-                                        <div class="d-flex">
+                                        <div class="d-flex justify-content-center">
                                             <img src="assets/img/step2img1.jpg" alt="Step 2: Implementing Components">
                                             <img src="assets/img/step2img3.jpg" alt="Step 2: Implementing Components" class="ms-2">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="timeline-item left">
+                            <div class="timeline-item">
                                 <div class="card">
                                     <h4>Putting together Components</h4>
                                     <div class="content-wrapper">
                                         <p><span class="highlight-orange">Integration</span> of various components and <span class="highlight-orange">verifying</span> if they can perform the expected functionality.</p>
-                                        <div class="d-flex">
+                                        <div class="d-flex justify-content-center">
                                             <img src="assets/img/step3img1.jpg" alt="Step 3: Integrating Components">
                                             <img src="assets/img/step3img2.jpg" alt="Step 3: Integrating Components" class="ms-2">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="timeline-item right">
+                            <div class="timeline-item">
                                 <div class="card">
                                     <h4>Testing</h4>
                                     <div class="content-wrapper">
@@ -355,7 +340,7 @@
                         </div>
                     </div>
 
-                    <div class="content-section">
+                    <div class="content-section line-wrapper">
                         <h3>Meeting with our Stakeholder</h3>
                         <div class="row">
                             <div class="col-md-6">
@@ -373,7 +358,7 @@
                         </ul>
                     </div>
 
-                    <div class="content-section">
+                    <div class="content-section line-wrapper">
                         <h3>Validation</h3>
                         <p>After interviewing the stakeholder, we learned that a key thing he is looking for is legible branding on his pastries. So to validate our system we got endorsement from Melvin as he was quite satisfied with the print.</p>
                         <img class="img-fluid img-frame" src="assets/img/branding1.jpg" alt="Branding Example 1">
