@@ -17,6 +17,182 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <!-- Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+            background: #121212;
+            color: #fff;
+        }
+        .img-frame {
+            border: 2px solid #292323;
+            padding: 5px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            object-fit: cover;
+            height: 300px; /* Fixed height for uniform size */
+            width: 100%;
+        }
+        .content-section {
+            margin-bottom: 40px;
+        }
+        .content-section h4 {
+            margin-top: 20px;
+            text-shadow: 1px 1px 2px #000;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #e67e22;
+        }
+        .code-snippet {
+            margin-bottom: 20px;
+        }
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #343a40;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            border-radius: 8px;
+        }
+        .timeline-item::after {
+            content: ' ';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: #121212;
+            border: 4px solid #343a40;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .left {
+            left: 0;
+        }
+        .right {
+            left: 50%;
+        }
+        .right::before {
+            left: -16px;
+        }
+        .left::before {
+            right: -16px;
+        }
+        .left::after {
+            left: -13px;
+        }
+        .right::after {
+            left: -13px;
+        }
+        .timeline-item img {
+            width: 100px; /* Smaller size for process images */
+            height: auto;
+            margin-top: 10px;
+            border-radius: 8px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .timeline-item img + img {
+            margin-left: 10px;
+        }
+        .timeline-item .large-img {
+            width: 200px; /* Larger size for the final step GIF */
+            height: auto;
+        }
+        .timeline-item .content-wrapper {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .timeline-item .content-wrapper img {
+            margin-right: 10px;
+        }
+        .timeline-item.right .content-wrapper {
+            flex-direction: row-reverse;
+        }
+        .timeline-item.right .content-wrapper img {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+        .timeline-item .card {
+            width: 100%;
+            margin: 0;
+            border-radius: 8px;
+            box-shadow: none;
+            background-color: #333; /* Dark mode background */
+            color: #fff; /* Dark mode text */
+            padding: 20px; /* Adding padding for space around the contents */
+        }
+        .card-section {
+            margin-bottom: 20px;
+        }
+        .accordion {
+            margin-top: 20px;
+        }
+        .accordion-button {
+            background-color: #333;
+            color: #fff;
+        }
+        .accordion-button::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: #e67e22;
+        }
+        .accordion-button.collapsed::after {
+            content: '-';
+            font-size: 1.25rem;
+            color: #e67e22;
+        }
+        .accordion-body {
+            background-color: #2c2c2c;
+            color: #fff;
+        }
+        .accordion-body img {
+            width: 100%;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 8px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .navbar {
+            background-color: #1e1e1e;
+        }
+        .navbar-brand, .nav-link {
+            color: #e67e22 !important;
+        }
+        .btn-primary {
+            background-color: #e67e22;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #d35400;
+        }
+        .highlight-orange {
+            color: #e67e22;
+            font-weight: bold;
+        }
+    </style>
+    <!-- Marked.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body id="page-top">
     <!-- Navigation-->
@@ -31,67 +207,136 @@
                     <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.html#experience">Experience</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="resume.pdf" download><i class="bi-file-earmark-person"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/kaushikThirumavalavan"><i class="bi-github"></i></a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- Project Details-->
-    <section class="page-section bg-light" id="project-details">
+    <section class="page-section bg-dark" id="project-details">
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-8">
                     <h2 class="mt-0">3D Food Printing Innovation</h2>
                     <hr class="divider" />
-                    <img class="img-fluid mb-4" src="assets/img/project1.jpg" alt="3D Food Printing Innovation">
-                    
-                    <h3>Objective of the Project</h3>
-                    <p><strong>Objective of this project:</strong> To develop a System Design and Prototype for an innovative food printing system. The goal is to create a system that enhances the presentation, customization, and efficiency of food preparation while considering the needs of various stakeholders, such as restaurants, caterers, and consumers.</p>
-                    
-                    <h3>Understanding the Problem Space</h3>
-                    <p>At the beginning of the project, my team and I used the project specifications as our starting point. We first needed to understand the needs in the 3D printed food industry, which led us to explore the problem space. By studying various domains where 3D printing is utilized, we analyzed different functionalities and the needs they addressed. Through my research on "Elderly Foods," I discovered useful functionalities like customizing taste and flavor, which we incorporated into our solution space. Additionally, I explored 3D printed cookies that utilize waste products, providing further insights for our project.</p>
 
-                    <h3>Solution Space Exploration</h3>
-                    <p>After the team consolidated a list of functionalities and needs from other domains into the problem space, we moved to the solution space. Here, the entire list of functionalities was scrutinized for clashing elements, such as laser food engraving and inkjet printing, which were logically clashing. The team removed functionalities that were not feasible.</p>
-                    <div class="text-center">
-                        <img class="img-fluid mb-4" src="assets/img/iteration1.png" alt="Problem space to solution space">
+                    <div class="content-section">
+                        <h3>The E.A.S.Y System</h3>
+                        <img class="img-fluid img-frame" src="assets/img/finalCroissantCUT.gif" alt="EASY System">
                     </div>
 
-                    <h3>Iterating Between Problem and Solution Spaces</h3>
-                    <p>We realized that many of our functionalities had overlaps, which was not helping with innovation. So, we decided to head back to the problem space and see how similar functionalities were used in domains other than 3D food printing in the hopes of finding an alternative way to creatively deploy the functionality in the food domain. For example, upcycling food waste like wheat and grape pomace to 3D print cookies focuses on reusing food waste. A similar functionality would be in agriculture where agricultural residues are used to make biofuels. However, this approach had little success as the application of the functionalities in other domains did not fit the solution due to domain incompatibility.</p>
-                    
-                    <h3>Reverse Engineering Into Other Domains</h3>
-                    <p>Next, we decided to do the reverse: instead of porting functionalities from other domains into the solution space, we ported existing functionalities in the solution space into other domains. I explored several disability domains, including depression, bulimia, obesity, but Pica stood out the most and I dived deeper into it. Pica is a form of compulsive disorder where the user has the strong urge to eat inedible objects. There is a huge range of those objects, and the user can be drawn to them for a combination of reasons, including taste, smell, texture, and appearance. However, there was no proper cure for this and the existing solution was aversion therapy, which is controversial.</p>
-                    
-                    <h3>Addressing Constraints and Finding Opportunities</h3>
-                    <p>A possible opportunity here was to take advantage of the customizable functionalities of 3D food printing to print edible food that resembles the objects the user has urges to eat. Since a common theme of Pica is children getting injured because of eating inedible objects, this could at least solve the direct need of preventing injury to children. This seemed like a strong candidate solution… until we went to the solution space.</p>
-                    
-                    <p>We encountered a big issue: the Evebot, a handheld 2D inkjet printer, was a permanent constraint in the solution space. This posed a huge constraint as it eliminated almost any functionality derived from 3D printing. This unexpected issue prompted us to iterate back to the problem space and change our direction. We established the functionalities of the Evebot as a constraint, meaning any functionalities we port over from the problem space MUST fit with Evebot.</p>
-                    
-                    <img class="img-fluid mb-4" src="assets/img/puzzle.png" alt="Puzzle Piece Fitting">
-                    
-                    <p>We worked backwards from the solution space into the problem space and decided to search for opportunities that were still within reach of Evebot’s capabilities. Two possible domains were identified: Inkjet Binding and Blindness. The team split into two to tackle these domains and determine which had the best viability.</p>
-                    
-                    <h3>Innovations for Accessibility</h3>
-                    <p>For blindness, a need was identified where individuals with blindness struggle to write and fill out forms. This is because they do not know where to align the pen on the paper. An experimental innovation, WiYG (Write it Yourself Guide), was formed, which uses the frontal phone camera to give feedback to the user to align the pen. Since Evebot is also a pen, this is a problem that people with blindness could face with Evebot. The opportunity here would be that since Evebot is a flexible tool, a static solution like an app that tells you where to align the pen on the form would not be applicable. Thus, an idea was born: for Evebot to be more accessible for the blind, it needs to provide feedback about alignment. However, the alignment has to be customizable to complement the flexibility of Evebot.</p>
-                    <p>So, learning from the research, a similar but more adaptable solution can be crafted. By attaching an object recognition camera, it is able to send signals to the microcronteller if it detects a specified object or pattern. Meaning it could be set up to inform the user of proper alignment by hooking up the microcontoller to a mini speaker.</p>
-                    <img class="img-fluid mb-4" src="assets/img/solution.jpg" alt="Solution Sketch">
-                   
-                    <!-- <h3>Functionalities Discovered</h3>
-                    <ul>
-                        <li><strong>Personalized Nutrition:</strong> Creating meals tailored to individual dietary needs, enhancing nutritional value and user satisfaction.</li>
-                        <li><strong>Texture Customization:</strong> Developing foods that are easier to chew and more appealing, particularly for elderly consumers.</li>
-                        <li><strong>Sustainability:</strong> Incorporating food waste into new formulations to reduce environmental impact and promote sustainable practices.</li>
-                        <li><strong>Shape Retention:</strong> Ensuring that printed food products maintain their designed shapes during and after post-processing for visual appeal and integrity.</li>
-                    </ul> -->
-                    <p>Although this solution was not used by the team in the end due other already existing solutions, it still shows the process of creating an idea from scratch with the unique way of drawing inspiration from other domains, abstracting its core idea and implementing it into our domain of choice.</p>
-                    
+                    <div class="content-section">
+                        <h3>Overview</h3>
+                        <p>The <span class="highlight-orange">E.A.S.Y system</span> is an automated machine for printing on pastries with food-safe ink. It stands out because it can handle an entire tray of pastries at once. No need to load each item individually like other food printers (e.g., Eddie Macaron printer).</p>
+                        <p>It allows for varying pastries and their orientation in a tray, expanding its applicability. The user can also change what is being printed with the Evebot app.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>How It Works</h3>
+                        <p>The process starts with placing a tray of croissants under the machine. The Pixy2 camera scans the tray to determine the exact location of each croissant. This information is sent to the control system, which then directs the X carriage to move the Evebot pen over each croissant, printing precise and consistent decorations.</p>
+                        <p>The technical detailing can be found below:</p>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                        Pastry detection logic explanation
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <!-- GitHub README Embed -->
+                                        <div id="readme"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>Process</h3>
+                        <p>This timeline outlines the key steps in the system's fabrication process. Due to the <span class="highlight-orange">volatile nature of the project</span> and the need to adapt to <span class="highlight-orange">new problems and challenges</span>, the development involved multiple <span class="highlight-orange">iterations</span>, with steps being revisited and refined several times, rather than being followed in a strictly linear sequence.</p>
+                        <div class="timeline">
+                            <div class="timeline-item left">
+                                <div class="card">
+                                    <h4>Procurement</h4>
+                                    <div class="content-wrapper">
+                                        <p>Utilizing the <span class="highlight-orange">Make Buy Reuse principle</span> to manage costs effectively. Ensured all necessary components were procured or reused to <span class="highlight-orange">fit budget constraints</span>.</p>
+                                        <div class="d-flex">
+                                            <img src="assets/img/step1img1.jpg" alt="Step 1: Procurement">
+                                            <img src="assets/img/step1img2.jpg" alt="Step 1: Procurement" class="ms-2">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item right">
+                                <div class="card">
+                                    <h4>Implementing Components</h4>
+                                    <div class="content-wrapper">
+                                        <p>Work was divided efficiently among team members to <span class="highlight-orange">implement</span> components concurrently under a tight <span class="highlight-orange">2-week schedule</span>.</p>
+                                        <div class="d-flex">
+                                            <img src="assets/img/step2img1.jpg" alt="Step 2: Implementing Components">
+                                            <img src="assets/img/step2img3.jpg" alt="Step 2: Implementing Components" class="ms-2">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item left">
+                                <div class="card">
+                                    <h4>Integrating Components</h4>
+                                    <div class="content-wrapper">
+                                        <p><span class="highlight-orange">Integration</span> of various components and <span class="highlight-orange">verifying</span> if they can perform the expected functionality.</p>
+                                        <div class="d-flex">
+                                            <img src="assets/img/step3img1.jpg" alt="Step 3: Integrating Components">
+                                            <img src="assets/img/step3img2.jpg" alt="Step 3: Integrating Components" class="ms-2">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item right">
+                                <div class="card">
+                                    <h4>Testing</h4>
+                                    <div class="content-wrapper">
+                                        <p>Testing the overall functionality of the system, if something is wrong an <span class="highlight-orange">iteration</span> would occur.</p>
+                                        <img src="assets/img/step4gif.gif" alt="Step 4: Testing" class="large-img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>Meeting with our Stakeholder</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img class="img-fluid img-frame" src="assets/img/withMelvin.jpg" alt="Stakeholder Meeting">
+                            </div>
+                            <div class="col-md-6">
+                                <img class="img-fluid img-frame" src="assets/img/nicherShop.jpg" alt="Nicher's Artisanal Bakery">
+                            </div>
+                        </div>
+                        <p>We visited a bakery we had previously ordered croissants from and successfully interviewed Melvin, the sole baker at Nichers Artisanal Bakery.</p>
+                        <p>For lesser-known bakeries like Nichers, <span class="highlight-orange">branding</span> is crucial to promote the business and visibility to customers. <span class="highlight-orange">Catering</span> is also essential to keep the business afloat. Melvin found the following 2 functionalities of our system desirable:</p>
+                        <ul>
+                            <li>For catering, the ability to change prints on the fly is desirable compared to static methods like stickers.</li>
+                            <li>Automation is valuable due to the high mix of catering and the fact that it is a one-man show, making it difficult for Melvin to brand items individually.</li>
+                        </ul>
+                                           
+                    </div>
+
+                    <div class="content-section">
+                        <h3>Validation</h3>
+                        <p>After interviewing the stakeholder, we learned that a key thing he is looking for is legible branding on his pastries. So to validate our system we got endorsement from Melvin as he was quite satisfied with the print.</p>
+                        <img class="img-fluid img-frame" src="assets/img/branding1.jpg" alt="Branding Example 1">
+                    </div>
+
                     <a class="btn btn-primary btn-xl mt-4" href="index.html#projects">Back to Projects</a>
                 </div>
             </div>
         </div>
     </section>
     <!-- Footer-->
-    <footer class="bg-light py-5">
+    <footer class="bg-dark py-5">
         <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2024 - Kaushik Thirumavalavan</div></div>
     </footer>
     <!-- Bootstrap core JS-->
@@ -100,5 +345,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    <!-- Prism.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-cpp.min.js"></script>
+    <!-- GitHub README Embed Script -->
+    <script>
+        fetch('https://api.github.com/repos/kaushikThirumavalavan/readME_embed_sep2/readme', {
+            headers: {
+                'Accept': 'application/vnd.github.v3.raw'
+            }
+        })
+        .then(response => response.text())
+        .then(data => {
+            const repoUrl = 'https://github.com/kaushikThirumavalavan/readME_embed_sep2/blob/main/';
+            const readmeContent = data.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, alt, src) => {
+                if (src.startsWith('http')) {
+                    return match;
+                }
+                const fullUrl = `${repoUrl}${src}`;
+                console.log(`Transformed URL: ${fullUrl}`);
+                return `![${alt}](${fullUrl})`;
+            });
+            document.getElementById('readme').innerHTML = marked.parse(readmeContent);
+        })
+        .catch(error => {
+            document.getElementById('readme').innerHTML = 'Error fetching README: ' + error;
+        });
+    </script>
 </body>
 </html>

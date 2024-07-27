@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Colour Tracking Bot - Kaushik Thirumavalavan" />
+    <meta name="author" content="Kaushik Thirumavalavan" />
+    <title>Colour Tracking Bot</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+            background: #121212;
+            color: #fff;
+        }
+        .content-section {
+            margin-bottom: 40px;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #e67e22;
+        }
+        .navbar {
+            background-color: #1e1e1e;
+        }
+        .navbar-brand, .nav-link {
+            color: #e67e22 !important;
+        }
+        .btn-primary {
+            background-color: #e67e22;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #d35400;
+        }
+        #readme {
+            background-color: #2c2c2c;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            overflow-wrap: break-word;
+        }
+        #readme img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <!-- Marked.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">Kaushik Thirumavalavan</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="resume.pdf" download><i class="bi-file-earmark-person"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/kaushikThirumavalavan"><i class="bi-github"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Project Details-->
+    <section class="page-section bg-dark" id="project-details">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="mt-0">Colour Tracking Bot</h2>
+                    <hr class="divider" />
+                    
+                    <img class="img-fluid img-frame" src="assets/img/colorQUICK.gif" alt="Colour Tracking Bot">
+
+                    <div class="content-section">
+                        <h3>Overview</h3>
+                        <p>The <span class="highlight">Colour Tracking Bot</span> is a cutting-edge robotics project designed to autonomously detect and follow a specific color using advanced <span class="highlight">computer vision techniques</span> and <span class="highlight">real-time image processing</span>.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>Project Goals</h3>
+                        <ul>
+                            <li><span class="highlight">Develop</span> an autonomous bot capable of real-time color detection and tracking.</li>
+                            <li><span class="highlight">Implement</span> computer vision algorithms to enhance precision and efficiency.</li>
+                            <li><span class="highlight">Integrate</span> sensor data for improved navigation and obstacle avoidance.</li>
+                            <li><span class="highlight">Explore</span> practical applications in various fields, including AGVs, search and rescue, and interactive robotics.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>Technical Details</h3>
+                        <p>The bot uses a <span class="highlight">camera</span> to capture images and process them to identify the target color. The image processing algorithm isolates the color and calculates the centroid, which is then used to direct the bot's movement. The project includes:</p>
+                        <ul>
+                            <li>Real-time color detection and tracking using OpenCV.</li>
+                            <li>Autonomous navigation based on the detected color.</li>
+                            <li>Integration with sensors for obstacle detection and avoidance.</li>
+                        </ul>
+                        <div id="readme"></div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>Accomplishments</h3>
+                        <p>This project showcases my ability to:</p>
+                        <ul>
+                            <li><span class="highlight">Design and implement</span> complex algorithms for real-time applications.</li>
+                            <li><span class="highlight">Work with hardware</span> components and integrate them seamlessly with software solutions.</li>
+                            <li><span class="highlight">Solve challenging problems</span> in the field of robotics and autonomous systems.</li>
+                            <li><span class="highlight">Collaborate effectively</span> in a team environment to achieve project goals.</li>
+                        </ul>
+                    </div>
+
+                    <a class="btn btn-primary btn-xl mt-4" href="index.html#projects">Back to Projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="bg-dark py-5">
+        <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2024 - Kaushik Thirumavalavan</div></div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SimpleLightbox plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- Prism.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-cpp.min.js"></script>
+    <!-- GitHub README Embed Script -->
+    <script>
+        fetch('https://api.github.com/repos/kaushikThirumavalavan/colour-Tracking-Bot/readme', {
+            headers: {
+                'Accept': 'application/vnd.github.v3.raw'
+            }
+        })
+        .then(response => response.text())
+        .then(data => {
+            const repoUrl = 'https://github.com/kaushikThirumavalavan/colour-Tracking-Bot/blob/main/';
+            const readmeContent = data.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, alt, src) => {
+                if (src.startsWith('http')) {
+                    return match;
+                }
+                const fullUrl = `${repoUrl}${src}`;
+                return `![${alt}](${fullUrl})`;
+            });
+            document.getElementById('readme').innerHTML = marked.parse(readmeContent);
+        })
+        .catch(error => {
+            document.getElementById('readme').innerHTML = 'Error fetching README: ' + error;
+        });
+    </script>
+</body>
+</html>

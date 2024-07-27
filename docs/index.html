@@ -1,289 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Portfolio of Kaushik Thirumavalavan" />
-        <meta name="author" content="Kaushik Thirumavalavan" />
-        <title>Kaushik Thirumavalavan - Portfolio</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap Icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-        <!-- SimpleLightbox plugin CSS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <style>
-            a {
-                text-decoration: none !important;
-            }
-            .skills-box {
-                background-color: #2c3e50;
-                border-radius: 15px;
-                padding: 30px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                margin-bottom: 30px;
-                text-align: center;
-                color: white;
-            }
-            .skills-box i {
-                font-size: 2rem;
-                color: #e67e22;
-                margin-bottom: 15px;
-            }
-            .skills-box h3 {
-                color: #e67e22;
-            }
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Portfolio of Kaushik Thirumavalavan" />
+    <meta name="author" content="Kaushik Thirumavalavan" />
+    <title>Kaushik Thirumavalavan - Portfolio</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+        }
+        a {
+            text-decoration: none !important;
+            color: #e67e22;
+        }
+        .skills-box {
+            background-color: #1e1e1e;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+            text-align: center;
+            color: white;
+        }
+        .skills-box i {
+            font-size: 2rem;
+            color: #e67e22;
+            margin-bottom: 15px;
+        }
+        .skills-box h3 {
+            color: #e67e22;
+        }
 
-            .circle-image {
-                width: 150px;
-                height: 150px;
-                border-radius: 50%;
-                overflow: hidden;
-                margin: 0 auto;
-            }
+        .circle-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+        }
 
-            .circle-image img {
-                width: 100%;
+        .circle-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .education-card {
+            background-color: #2c2c2c;
+            border: 1px solid #333;
+            border-radius: 0.5rem;
+        }
+
+        .education-card .card-body {
+            background-color: #333;
+            padding: 1.5rem;
+            border-left: 5px solid #fd7e14;
+        }
+
+        .education-card .card-title {
+            color: #e67e22;
+        }
+
+        .education-card .card-subtitle {
+            color: #bbb;
+        }
+
+        .education-card img {
+            border-radius: 0.5rem;
+        }
+
+        .portfolio-box {
+            position: relative;
+            display: block;
+            max-width: 100%;
+            margin-bottom: 30px;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-box img {
+            border-radius: 0.5rem;
+        }
+
+        .portfolio-box:hover {
+            transform: scale(1.05);
+        }
+
+        .portfolio-box-caption {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-box:hover .portfolio-box-caption {
+            opacity: 1;
+        }
+
+        .portfolio-box .project-category {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .portfolio-box .project-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+        }
+
+        .experience-item h3,
+        .experience-item h4 {
+            margin-bottom: 10px;
+            color: #e67e22;
+        }
+
+        .experience-item p {
+            margin-bottom: 0;
+            color: #bbb;
+        }
+
+        .masthead {
+            min-height: 500px;
+            background-image: url('assets/img/masthead.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .divider {
+            border-color: #e67e22;
+            border-width: 2px;
+        }
+
+        .divider-light {
+            border-color: white;
+            border-width: 2px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            margin-bottom: 30px;
+            background-color: #1e1e1e;
+            text-decoration: none;
+            height: 400px; /* Fixed height for uniformity */
+        }
+
+        .project-card .img-container {
+            height: 200px; /* Fixed height for the image container */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the container */
+        }
+
+        .project-card-body {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-card-body h5 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: #e67e22;
+            flex-grow: 1;
+        }
+
+        .project-card-body p {
+            color: #bbb;
+            flex-grow: 1;
+        }
+
+        .project-card a {
+            margin-top: auto;
+            display: block;
+            text-align: center;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-section {
+            padding: 60px 0;
+            background: #1e1e1e;
+            color: white;
+        }
+
+        .contact-section .contact-item {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 30px;
+            background: #2c2c2c;
+            border-radius: 10px;
+            transition: transform 0.3s ease, background 0.3s ease;
+            margin: 15px; /* Add spacing between the contact items */
+        }
+
+        .contact-section .contact-item:hover {
+            background: #e67e22;
+            transform: scale(1.05);
+        }
+
+        .contact-section .contact-item i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-section .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar {
+            background-color: #1e1e1e;
+        }
+
+        .navbar-brand, .nav-link {
+            color: #e67e22 !important;
+        }
+
+        .btn-primary {
+            background-color: #e67e22;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #d35400;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .project-card {
                 height: auto;
             }
-
-                .page-section#education {
-        background-color: #f2f2f2; /* Light grey background color for the education section */
-        padding: 2rem 0;
-    }
-
-                .education-card {
-        background-color: #f8f9fa; /* Light grey background */
-        border: 1px solid #dee2e6; /* Light grey border */
-        border-radius: 0.5rem;
-    }
-
-    .education-card .card-body {
-        background-color: #ffffff; /* White background for the card body */
-        padding: 1.5rem;
-        border-left: 5px solid #fd7e14; /* Orange left border */
-    }
-
-    .education-card .card-title {
-        color: #343a40; /* Dark grey text color */
-    }
-
-    .education-card .card-subtitle {
-        color: #6c757d; /* Medium grey text color */
-    }
-
-    .education-card img {
-        border-radius: 0.5rem; /* Rounded corners for the images */
-    }
-        </style>
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">Kaushik Thirumavalavan</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    </ul>
-                </div>
+            .project-card .img-container {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#page-top">Kaushik Thirumavalavan</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="resume.pdf" download><i class="bi-file-earmark-person"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/kaushikThirumavalavan"><i class="bi-github"></i></a></li>
+                </ul>
             </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container px-4 px-lg-5 h-100">
-                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-                    <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold">Kaushik Thirumavalavan</h1>
-                        <hr class="divider" />
-                    </div>
-                    <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 mb-5">Aspiring Systems Engineer specializing in Robotics Systems Engineering.</p>
-                        <a class="btn btn-primary btn-xl" href="#about">Learn More</a>
+        </div>
+    </nav>
+    <!-- About Me-->
+    <header class="masthead" id="about">
+        <div class="container px-4 px-lg-5">
+            <h1 class="text-white font-weight-bold">Kaushik Thirumavalavan</h1>
+            <div class="circle-image">
+                <img src="assets/img/me.jpg" alt="Kaushik Thirumavalavan">
+            </div>
+            <p class="text-white-75">Aspiring Systems Engineer specializing in Robotics Systems Engineering.</p>
+            <p class="text-white-75 mb-4"><strong>I am a student</strong> at the <strong>Singapore Institute of Technology</strong> pursuing a <strong>Bachelor of Engineering with Honors in Robotics Systems Engineering</strong>. I am <strong>passionate about Systems Engineering</strong> and aspire to contribute to <strong>innovative projects</strong> that enhance technology and society.</p>
+        </div>
+    </header>
+    <!-- Skills-->
+    <section class="page-section" id="skills">
+        <div class="container px-4 px-lg-5">
+            <h2 class="text-center mt-0">Skills</h2>
+            <hr class="divider" />
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="skills-box">
+                        <div class="mb-2"><i class="bi-gear"></i></div>
+                        <h3 class="h4 mb-2">Systems Engineering Tools</h3>
+                        <p class="text-muted mb-0">Capella Arcadia, SpicySE</p>
                     </div>
                 </div>
-            </div>
-        </header>
-        <!-- About-->
-        <section class="page-section bg-primary" id="about">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="text-white mt-0">About Me</h2>
-                        <hr class="divider divider-light" />
-                        <div class="circle-image">
-                            <img src="assets/img/me.jpg" alt="Kaushik Thirumavalavan">
-                        </div>
-                        <p class="text-white-75 mb-4">I am a student at the Singapore Institute of Technology pursuing a Bachelor of Engineering with Honors in Robotics Systems Engineering. I am passionate about Systems Engineering and aspire to contribute to innovative projects that enhance technology and society.</p>
-                        <a class="btn btn-light btn-xl" href="#skills">My Skills</a>
+                <div class="col-lg-4 col-md-6">
+                    <div class="skills-box">
+                        <div class="mb-2"><i class="bi-code-slash"></i></div>
+                        <h3 class="h4 mb-2">Programming Languages</h3>
+                        <p class="text-muted mb-0">Python, C++, Java</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="skills-box">
+                        <div class="mb-2"><i class="bi-diagram-3"></i></div>
+                        <h3 class="h4 mb-2">Project Management</h3>
+                        <p class="text-muted mb-0">Agile, Scrum, PMP principles</p>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- Skills-->
-        <section class="page-section" id="skills">
-            <div class="container px-4 px-lg-5">
-                <h2 class="text-center mt-0">Skills</h2>
-                <hr class="divider" />
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="skills-box">
-                            <div class="mb-2"><i class="bi-gear"></i></div>
-                            <h3 class="h4 mb-2">Systems Engineering Tools</h3>
-                            <p class="text-muted mb-0">Capella Arcadia, SpicySE</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="skills-box">
-                            <div class="mb-2"><i class="bi-code-slash"></i></div>
-                            <h3 class="h4 mb-2">Programming Languages</h3>
-                            <p class="text-muted mb-0">Python, C++, Java</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="skills-box">
-                            <div class="mb-2"><i class="bi-diagram-3"></i></div>
-                            <h3 class="h4 mb-2">Project Management</h3>
-                            <p class="text-muted mb-0">Agile, Scrum, PMP principles</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Projects-->
-        <section class="page-section bg-light" id="projects">
-            <div class="container px-4 px-lg-5">
-                <h2 class="text-center mt-0">Projects</h2>
-                <hr class="divider" />
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="project1.html">
+        </div>
+    </section>
+    <!-- Projects-->
+    <section class="page-section bg-dark" id="projects">
+        <div class="container px-4 px-lg-5">
+            <h2 class="text-center mt-0">Projects</h2>
+            <hr class="divider" />
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-lg-4 col-sm-6">
+                    <a href="project1.html" class="project-card">
+                        <div class="img-container">
                             <img class="img-fluid" src="assets/img/project1.jpg" alt="3D Food Printing Innovation" />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Food Tech</div>
-                                <div class="project-name">3D Food Printing Innovation</div>
-                            </div>
-                        </a>
-                    </div>
+                        </div>
+                        <div class="project-card-body">
+                            <h5>3D Food Printing Innovation</h5>
+                            <p>Automated printing on pastries for efficiency and consistency.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="project2.html" class="project-card">
+                        <div class="img-container">
+                            <img class="img-fluid" src="assets/img/project2.jpg" alt="Colour Tracking Bot" />
+                        </div>
+                        <div class="project-card-body">
+                            <h5>Colour Tracking Bot</h5>
+                            <p>Robot that follows a specific color using computer vision.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="project3.html" class="project-card">
+                        <div class="img-container">
+                            <img class="img-fluid" src="assets/img/project3.jpg" alt="Autonomous Navigation LIMO" />
+                        </div>
+                        <div class="project-card-body">
+                            <h5>Autonomous Navigation LIMO</h5>
+                            <p>Robot navigating obstacles using advanced sensors.</p>
+                        </div>
+                    </a>
                 </div>
             </div>
-        </section>
-        <!-- Education-->
-        <section class="page-section bg-light-grey" id="education">
-            <div class="container px-4 px-lg-5">
-                <h2 class="text-center mt-0">Education</h2>
-                <hr class="divider" />
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="card mb-4 education-card">
-                            <div class="row g-0">
-                                <div class="col-md-4 d-flex align-items-center justify-content-center">
-                                    <img src="assets/img/sit.png" alt="Singapore Institute of Technology Logo" class="img-fluid" style="max-width: 150px; height: auto;">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h3 class="card-title">Bachelor of Engineering (Hons) in Robotics Systems Engineering</h3>
-                                        <h4 class="card-subtitle mb-2 text-muted">Singapore Institute of Technology</h4>
-                                        <p class="text-muted">Aug 2022 – Aug 2026</p>
-                                        <p>Specializing in Systems Engineering with a focus on Robotics. Involved in various projects including 3D food printing and AR/VR applications.</p>
-                                    </div>
+        </div>
+    </section>
+    <!-- Education-->
+    <section class="page-section" id="education">
+        <div class="container px-4 px-lg-5">
+            <h2 class="text-center mt-0">Education</h2>
+            <hr class="divider" />
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card mb-4 education-card">
+                        <div class="row g-0">
+                            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                                <img src="assets/img/sit.png" alt="Singapore Institute of Technology Logo" class="img-fluid" style="max-width: 150px; height: auto;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h3 class="card-title">Bachelor of Engineering (Hons) in Robotics Systems Engineering</h3>
+                                    <h4 class="card-subtitle mb-2 text-muted">Singapore Institute of Technology</h4>
+                                    <p class="text-muted">Aug 2022 – Aug 2026</p>
+                                    <p>Specializing in Systems Engineering with a focus on Robotics. Involved in various projects including 3D food printing and AR/VR applications.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="card mb-4 education-card">
-                            <div class="row g-0">
-                                <div class="col-md-4 d-flex align-items-center justify-content-center">
-                                    <img src="assets/img/ngee.png" alt="Ngee Ann Polytechnic Logo" class="img-fluid" style="max-width: 150px; height: auto;">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h3 class="card-title">Diploma in Chemical and Biomolecular Engineering</h3>
-                                        <h4 class="card-subtitle mb-2 text-muted">Ngee Ann Polytechnic</h4>
-                                        <p class="text-muted">Aug 2017 – May 2020</p>
-                                        <p>Focused on chemical processes and biotechnological applications. Completed projects on sustainable chemical practices and biomolecular research.</p>
-                                    </div>
+                    </div>
+                    <div class="card mb-4 education-card">
+                        <div class="row g-0">
+                            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                                <img src="assets/img/ngee.png" alt="Ngee Ann Polytechnic Logo" class="img-fluid" style="max-width: 150px; height: auto;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h3 class="card-title">Diploma in Chemical and Biomolecular Engineering</h3>
+                                    <h4 class="card-subtitle mb-2 text-muted">Ngee Ann Polytechnic</h4>
+                                    <p class="text-muted">Aug 2017 – May 2020</p>
+                                    <p>Focused on chemical processes and biotechnological applications. Completed projects on sustainable chemical practices and biomolecular research.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        
-        <!-- Experience-->
-        <section class="page-section" id="experience">
-            <div class="container px-4 px-lg-5">
-                <h2 class="text-center mt-0">Experience</h2>
-                <hr class="divider" />
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="experience-item">
-                            <h3>AR/VR Software Engineer Intern</h3>
-                            <h4>Singapore Institute of Technology</h4>
-                            <p class="text-muted">Dec 2023 - Feb 2024</p>
-                            <p>Developed and implemented new features to manipulate 3D objects received from local server into existing production using Babylon.js in React-Vite.</p>
-                            <p>Resolved merge conflicts in Git and conducted bug testing features on pull requests.</p>
-                            <p>Refactored and documented the code base.</p>
-                        </div>
-                        <hr>
+        </div>
+    </section>
+    <!-- Experience-->
+    <section class="page-section" id="experience">
+        <div class="container px-4 px-lg-5">
+            <h2 class="text-center mt-0">Experience</h2>
+            <hr class="divider" />
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8">
+                    <div class="experience-item">
+                        <h3>AR/VR Software Engineer Intern</h3>
+                        <h4>Singapore Institute of Technology</h4>
+                        <p class="text-muted">Dec 2023 - Feb 2024</p>
+                        <p>Developed and implemented new features to manipulate 3D objects received from local server into existing production using Babylon.js in React-Vite.</p>
+                        <p>Resolved merge conflicts in Git and conducted bug testing features on pull requests.</p>
+                        <p>Refactored and documented the code base.</p>
                     </div>
+                    <hr>
                 </div>
             </div>
-        </section>
-        <!-- Contact-->
-        <section class="page-section bg-primary text-white" id="contact">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8 col-xl-6 text-center">
-                        <h2 class="mt-0">Get In Touch</h2>
-                        <hr class="divider divider-light" />
-                        <p class="text-muted mb-5">Feel free to reach out to me via email or connect with me on LinkedIn.</p>
-                    </div>
-                </div>
-                <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
-                    <div class="col-lg-4 text-center mb-5 mb-lg-0">
-                        <i class="bi-envelope fs-2 mb-3 text-muted"></i>
-                        <div>Email: <a href="mailto:kaushik@example.com" class="text-white">kaushikt2000@gmail.com</a></div>
-                    </div>
-                    <div class="col-lg-4 text-center mb-5 mb-lg-0">
-                        <i class="bi-linkedin fs-2 mb-3 text-muted"></i>
-                        <div>LinkedIn: <a href="https://www.linkedin.com/in/kausht/" class="text-white">linkedin.com/in/kausht</a></div>
-                    </div>
-                </div>
-                <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
-                    <div class="col-lg-4 text-center mb-5 mb-lg-0">
-                        <i class="bi-github fs-2 mb-3 text-muted"></i>
-                        <div>GitHub: <a href="https://github.com/kaushikThirumavalavan" class="text-white">github.com/kaushikThirumavalavan</a></div>
-                    </div>
-                    <div class="col-lg-4 text-center mb-5 mb-lg-0">
-                        <i class="bi-phone fs-2 mb-3 text-muted"></i>
-                        <div>Phone: +65 91677238</div>
-                    </div>
+        </div>
+    </section>
+    <!-- Contact-->
+    <section class="page-section contact-section" id="contact">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6 text-center">
+                    <h2 class="mt-0">Get In Touch</h2>
+                    <hr class="divider divider-light" />
+                    <p class="mb-5">Feel free to reach out to me via email or connect with me on LinkedIn.</p>
                 </div>
             </div>
-        </section>
-        <!-- Footer-->
-        <footer class="bg-light py-5">
-            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2024 - Kaushik Thirumavalavan</div></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- SimpleLightbox plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-4 col-md-6 contact-item">
+                    <i class="bi-envelope fs-2 mb-3"></i>
+                    <div>Email: <a href="mailto:kaushik@example.com">kaushikt2000@gmail.com</a></div>
+                </div>
+                <div class="col-lg-4 col-md-6 contact-item">
+                    <i class="bi-linkedin fs-2 mb-3"></i>
+                    <div>LinkedIn: <a href="https://www.linkedin.com/in/kausht/">linkedin.com/in/kausht</a></div>
+                </div>
+                <div class="col-lg-4 col-md-6 contact-item">
+                    <i class="bi-github fs-2 mb-3"></i>
+                    <div>GitHub: <a href="https://github.com/kaushikThirumavalavan">github.com/kaushikThirumavalavan</a></div>
+                </div>
+                <div class="col-lg-4 col-md-6 contact-item">
+                    <i class="bi-phone fs-2 mb-3"></i>
+                    <div>Phone: +65 91677238</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="bg-dark py-5">
+        <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2024 - Kaushik Thirumavalavan</div></div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SimpleLightbox plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
 </html>
