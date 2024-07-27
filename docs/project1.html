@@ -196,6 +196,19 @@
             align-items: center;
             flex-direction: column;
         }
+        .close-accordion-button {
+            background-color: #e67e22;
+            color: #fff;
+            border: none;
+            margin-top: 10px;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1.25rem;
+        }
+        .close-accordion-button:hover {
+            background-color: #d35400;
+        }
     </style>
     <!-- Marked.js Library -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -239,7 +252,7 @@
                         <p>It allows for varying pastries and their orientation in a tray, expanding its applicability. The user can also change what is being printed with the Evebot app.</p>
                     </div>
 
-                    <div class="content-section">
+                    <div class="content-section" id="accordion-section">
                         <h3>How It Works</h3>
                         <p>The process starts with placing a tray of croissants under the machine. The Pixy2 camera scans the tray to determine the exact location of each croissant. This information is sent to the control system, which then directs the X carriage to move the Evebot pen over each croissant, printing precise and consistent decorations.</p>
                         <p>The technical detailing can be found below:</p>
@@ -254,21 +267,22 @@
                                     <div class="accordion-body">
                                         <!-- GitHub README Embed -->
                                         <div id="readme"></div>
+                                        <button class="close-accordion-button" onclick="closeAccordion('collapseOne')">Close</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="content-section">
+                    <div class="content-section" id="process-section">
                         <h3>Process</h3>
                         <p>This timeline outlines the key steps in the system's fabrication process. Due to the <span class="highlight-orange">volatile nature of the project</span> and the need to adapt to <span class="highlight-orange">new problems and challenges</span>, the development involved multiple <span class="highlight-orange">iterations</span>, with steps being revisited and refined several times, rather than being followed in a strictly linear sequence.</p>
                         <div class="timeline">
                             <div class="timeline-item left">
                                 <div class="card">
-                                    <h4>Procurement</h4>
+                                    <h4>Getting parts</h4>
                                     <div class="content-wrapper">
-                                        <p>Utilizing the <span class="highlight-orange">Make Buy Reuse principle</span> to manage costs effectively. Ensured all necessary components were procured or reused to <span class="highlight-orange">fit budget constraints</span>.</p>
+                                        <p>Utilizing the <span class="highlight-orange">Make Buy Reuse principle</span> to manage costs effectively. Ensured all necessary parts were bought, reused or made to <span class="highlight-orange">fit budget constraints</span>.</p>
                                         <div class="d-flex">
                                             <img src="assets/img/step1img1.jpg" alt="Step 1: Procurement">
                                             <img src="assets/img/step1img2.jpg" alt="Step 1: Procurement" class="ms-2">
@@ -278,7 +292,7 @@
                             </div>
                             <div class="timeline-item right">
                                 <div class="card">
-                                    <h4>Implementing Components</h4>
+                                    <h4>Making Components</h4>
                                     <div class="content-wrapper">
                                         <p>Work was divided efficiently among team members to <span class="highlight-orange">implement</span> components concurrently under a tight <span class="highlight-orange">2-week schedule</span>.</p>
                                         <div class="d-flex">
@@ -290,7 +304,7 @@
                             </div>
                             <div class="timeline-item left">
                                 <div class="card">
-                                    <h4>Integrating Components</h4>
+                                    <h4>Putting together Components</h4>
                                     <div class="content-wrapper">
                                         <p><span class="highlight-orange">Integration</span> of various components and <span class="highlight-orange">verifying</span> if they can perform the expected functionality.</p>
                                         <div class="d-flex">
@@ -304,8 +318,8 @@
                                 <div class="card">
                                     <h4>Testing</h4>
                                     <div class="content-wrapper">
-                                        <p>Testing the overall functionality of the system, if something is wrong an <span class="highlight-orange">iteration</span> would occur.</p>
-                                        <iframe src="https://giphy.com/embed/BEafauZZ47bumm2hC7" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                                        <p>Testing the overall functionality of the system, if something is wrong we repeat the process and <span class="highlight-orange">iterate</span>.</p>
+                                        <iframe src="https://giphy.com/embed/BEafauZZ47bumm2hC7" width="240" height="135" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
                                     </div>
                                 </div>
                             </div>
@@ -378,6 +392,15 @@
         .catch(error => {
             document.getElementById('readme').innerHTML = 'Error fetching README: ' + error;
         });
+
+        function closeAccordion(id) {
+            const element = document.getElementById(id);
+            const button = element.previousElementSibling.querySelector('.accordion-button');
+            if (element.classList.contains('show')) {
+                button.click();
+                document.getElementById('accordion-section').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
     </script>
 </body>
 </html>
