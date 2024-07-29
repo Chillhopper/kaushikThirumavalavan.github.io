@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="3D Food Printing Innovation - Kaushik Thirumavalavan" />
+    <meta name="author" content="Kaushik Thirumavalavan" />
+    <title>Automated Pastry Printing</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+            background: #121212;
+            color: #fff;
+        }
+        .img-frame {
+            border: 2px solid #292323;
+            padding: 5px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            object-fit: cover;
+            height: 300px; /* Fixed height for uniform size */
+            width: 100%;
+        }
+        .content-section {
+            margin-bottom: 40px;
+        }
+        .content-section h4 {
+            margin-top: 20px;
+            text-shadow: 1px 1px 2px #000;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #e67e22;
+        }
+        .code-snippet {
+            margin-bottom: 20px;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #e67e22; /* Highlight color for better visibility */
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: inherit;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px 0;
+            width: 100%;
+            position: relative;
+        }
+        .timeline-item::after {
+            content: ' ';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: #121212;
+            border: 4px solid #e67e22;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item:nth-child(odd)::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .timeline-item:nth-child(even)::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .timeline-item img {
+            width: 100px; /* Smaller size for process images */
+            height: auto;
+            margin-top: 10px;
+            border-radius: 8px;
+        }
+        .timeline-item .card {
+            width: 100%;
+            margin: 0;
+            border-radius: 8px;
+            box-shadow: none;
+            padding: 20px;
+            text-align: center;
+        }
+        .timeline-item:nth-child(odd) .card {
+            background-color: #333; /* Dark mode background */
+            color: #fff; /* Dark mode text */
+        }
+        .timeline-item:nth-child(even) .card {
+            background-color: #1e3a5f; /* Dark blue background */
+            color: #fff; /* Dark mode text */
+        }
+        .timeline-item.ideation img {
+            width: 300px; /* Larger size for Ideation image */
+            height: auto;
+        }
+        .card-section {
+            margin-bottom: 20px;
+        }
+        .accordion {
+            margin-top: 20px;
+        }
+        .accordion-button {
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+        .accordion-button::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: #e67e22;
+        }
+        .accordion-button.collapsed::after {
+            content: '-';
+            font-size: 1.25rem;
+            color: #e67e22;
+        }
+        .accordion-body {
+            background-color: #2c2c2c;
+            color: #fff;
+        }
+        .accordion-body img {
+            width: 100%;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 8px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .navbar {
+            background-color: #1e1e1e;
+        }
+        .navbar-brand, .nav-link {
+            color: #e67e22 !important;
+        }
+        .btn-primary {
+            background-color: #e67e22;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #d35400;
+        }
+        .highlight-orange {
+            color: #e67e22;
+            font-weight: bold;
+        }
+        .center-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .close-accordion-button {
+            background-color: #e67e22;
+            color: #fff;
+            border: none;
+            margin-top: 10px;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1.25rem;
+        }
+        .close-accordion-button:hover {
+            background-color: #d35400;
+        }
+
+        /* Stakeholder and Validation Line */
+        .line-wrapper {
+            position: relative;
+            margin-top: 40px;
+            padding: 20px;
+            border: 2px solid #e67e22;
+            border-radius: 8px;
+        }
+        .line-wrapper::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #e67e22;
+            top: -40px;
+            bottom: auto;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Mobile responsiveness */
+        @media screen and (max-width: 767px) {
+            .timeline-item {
+                width: 100%;
+                padding: 20px;
+            }
+            .timeline-item::after {
+                top: 25px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .line-wrapper {
+                padding: 10px;
+            }
+        }
+    </style>
+    <!-- Marked.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">Kaushik Thirumavalavan</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="resume.pdf" download><i class="bi-file-earmark-person"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/kaushikThirumavalavan"><i class="bi-github"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Project Details-->
+    <section class="page-section bg-dark" id="project-details">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="mt-0">Automated Pastry Printing</h2>
+                    <hr class="divider" />
+
+                    <div class="content-section center-content">
+                        <h3>The E.A.S.Y System</h3>
+                        <iframe src="https://giphy.com/embed/lDql0oHcmg115fqvh6" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                        <p></p>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>Overview</h3>
+                        <p>The <span class="highlight-orange">E.A.S.Y system</span> is an automated machine for printing on pastries with food-safe ink via a Print Pen (Evebot). It stands out because it can handle an entire tray of pastries at once. No need to load each item individually like other food printers (e.g., Eddie Macaron printer).</p>
+                        <p>It allows for varying pastries and their orientation in a tray, expanding its applicability. The user can also change what is being printed with the Evebot app.</p>
+                    </div>
+
+                    <div class="content-section" id="accordion-section">
+                        <h3>How It Works</h3>
+                        <ul>
+                            <li>Place a tray of croissants under the machine.</li>
+                            <li>Pixy2 camera scans the tray to determine the exact location of each croissant.</li>
+                            <li>Information from the Pixy2 camera is sent to the control system.</li>
+                            <li>Control system moves the Print Pen over each croissant.</li>
+                            <li>Evebot pen prints precise and consistent decorations on each croissant.</li>
+                        </ul>
+                          
+                        <p>The technical detailing can be found below:</p>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                        Pastry detection logic explanation
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <!-- GitHub README Embed -->
+                                        <div id="readme-logic"></div>
+                                        <p>For more information, visit the <a href="https://github.com/kaushikThirumavalavan/readME_embed_sep2" target="_blank">GitHub project page</a>.</p>
+                                        <button class="close-accordion-button" onclick="closeAccordion('collapseOne')">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item" style="margin-top: 20px; border-top: 1px solid #fff;">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Circuitry Design and Implementation
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <!-- GitHub README Embed -->
+                                        <div id="readme-circuitry"></div>
+                                        <button class="close-accordion-button" onclick="closeAccordion('collapseTwo')">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section" id="process-section">
+                        <h3>Process</h3>
+                        <p>This timeline outlines the key steps in the system's fabrication process. Due to the <span class="highlight-orange">volatile nature of the project</span> and the need to adapt to <span class="highlight-orange">new problems and challenges</span>, the development involved multiple <span class="highlight-orange">iterations</span>, with steps being revisited and refined several times, rather than being followed in a strictly linear sequence.</p>
+                        <div class="timeline">
+                            <div class="timeline-item ideation">
+                                <div class="card">
+                                    <h4>Ideation</h4>
+                                    <div class="content-wrapper">
+                                        <p>Discussing ideas to conceptualize the project. Identifying the core functionalities and unique features of the E.A.S.Y system.</p>
+                                        <div class="d-flex justify-content-center">
+                                            <img src="assets/img/ideation.jpg" alt="Ideation Process">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="card">
+                                    <h4>Getting parts</h4>
+                                    <div class="content-wrapper">
+                                        <p>Utilizing the <span class="highlight-orange">Make Buy Reuse</span> to manage costs effectively. Ensured all necessary parts were bought, reused or made to <span class="highlight-orange">fit budget constraints</span>.</p>
+                                        <div class="d-flex justify-content-center">
+                                            <img src="assets/img/step1img1.jpg" alt="Step 1: Procurement">
+                                            <img src="assets/img/step1img2.jpg" alt="Step 1: Procurement" class="ms-2">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="card">
+                                    <h4>Making Components</h4>
+                                    <div class="content-wrapper">
+                                        <p>Work was divided efficiently among team members to <span class="highlight-orange">implement</span> components concurrently under a tight <span class="highlight-orange">2-week schedule</span>.</p>
+                                        <div class="d-flex justify-content-center">
+                                            <img src="assets/img/step2img1.jpg" alt="Step 2: Implementing Components">
+                                            <img src="assets/img/step2img3.jpg" alt="Step 2: Implementing Components" class="ms-2">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="card">
+                                    <h4>Putting together Components</h4>
+                                    <div class="content-wrapper">
+                                        <p><span class="highlight-orange">Integration</span> of various components and <span class="highlight-orange">verifying</span> if they can perform the expected functionality.</p>
+                                        <div class="d-flex justify-content-center">
+                                            <img src="assets/img/step3img1.jpg" alt="Step 3: Integrating Components">
+                                            <img src="assets/img/step3img2.jpg" alt="Step 3: Integrating Components" class="ms-2">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="card">
+                                    <h4>Testing</h4>
+                                    <div class="content-wrapper">
+                                        <p>Testing the overall functionality of the system, if something is wrong we repeat the process and <span class="highlight-orange">iterate</span>.</p>
+                                        <iframe src="https://giphy.com/embed/BEafauZZ47bumm2hC7" width="240" height="135" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section line-wrapper">
+                        <h3>Meeting with our Stakeholder</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img class="img-fluid img-frame" src="assets/img/withMelvin.jpg" alt="Stakeholder Meeting">
+                            </div>
+                            <div class="col-md-6">
+                                <img class="img-fluid img-frame" src="assets/img/nicherShop.jpg" alt="Nicher's Artisanal Bakery">
+                            </div>
+                        </div>
+                        <p>We visited a bakery we had previously ordered croissants from and successfully interviewed Melvin, the sole baker at Nichers Artisanal Bakery.</p>
+                        <p>For lesser-known bakeries like Nichers, <span class="highlight-orange">branding</span> is crucial to promote the business and visibility to customers. <span class="highlight-orange">Catering</span> is also essential to keep the business afloat. Melvin found the following 2 functionalities of our system desirable:</p>
+                        <ul>
+                            <li>For catering, the ability to change prints on the fly is desirable compared to static methods like stickers.</li>
+                            <li>Automation is valuable due to the high mix of catering and the fact that it is a one-man show, making it difficult for Melvin to brand items individually.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section line-wrapper">
+                        <h3>Validation</h3>
+                        <p>After interviewing the stakeholder, we learned that a key thing he is looking for is legible branding on his pastries. So to validate our system we got endorsement from Melvin as he was quite satisfied with the print.</p>
+                        <img class="img-fluid img-frame" src="assets/img/branding1.jpg" alt="Branding Example 1">
+                    </div>
+
+                    <a class="btn btn-primary btn-xl mt-4" href="index.html#projects">Back to Projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="bg-dark py-5">
+        <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2024 - Kaushik Thirumavalavan</div></div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SimpleLightbox plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- Prism.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-cpp.min.js"></script>
+    <!-- GitHub README Embed Script -->
+    <script>
+        fetch('https://api.github.com/repos/kaushikThirumavalavan/readME_embed_sep2/readme', {
+            headers: {
+                'Accept': 'application/vnd.github.v3.raw'
+            }
+        })
+        .then(response => response.text())
+        .then(data => {
+            const repoUrl = 'https://github.com/kaushikThirumavalavan/readME_embed_sep2/blob/main/';
+            const readmeContent = data.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, alt, src) => {
+                if (src.startsWith('http')) {
+                    return match;
+                }
+                const fullUrl = `${repoUrl}${src}`;
+                console.log(`Transformed URL: ${fullUrl}`);
+                return `![${alt}](${fullUrl})`;
+            });
+            document.getElementById('readme-logic').innerHTML = marked.parse(readmeContent);
+        })
+        .catch(error => {
+            document.getElementById('readme-logic').innerHTML = 'Error fetching README: ' + error;
+        });
+
+        fetch('https://api.github.com/repos/kaushikThirumavalavan/readME_embed_sep2/contents/README.md?ref=circuitry', {
+            headers: {
+                'Accept': 'application/vnd.github.v3.raw'
+            }
+        })
+        .then(response => response.text())
+        .then(data => {
+            const repoUrl = 'https://github.com/kaushikThirumavalavan/readME_embed_sep2/blob/circuitry/';
+            const readmeContent = data.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, alt, src) => {
+                if (src.startsWith('http')) {
+                    return match;
+                }
+                const fullUrl = `${repoUrl}${src}`;
+                console.log(`Transformed URL: ${fullUrl}`);
+                return `![${alt}](${fullUrl})`;
+            });
+            document.getElementById('readme-circuitry').innerHTML = marked.parse(readmeContent);
+        })
+        .catch(error => {
+            document.getElementById('readme-circuitry').innerHTML = 'Error fetching README: ' + error;
+        });
+
+        function closeAccordion(id) {
+            const element = document.getElementById(id);
+            const button = element.previousElementSibling.querySelector('.accordion-button');
+            if (element.classList.contains('show')) {
+                button.click();
+                document.getElementById('accordion-section').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
